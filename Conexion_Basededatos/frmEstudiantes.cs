@@ -21,10 +21,11 @@ namespace Conexion_Basededatos
 
        public SqlConnection conexion;
        public DataTable dt;
-        public SqlCommand cmd;
+       public SqlCommand cmd;
        public string cadenaconexion = "Data Source=DESKTOP-M3MJNT8;" + "Initial Catalog=Notas_Prueva;" + "Integrated Security=SSPI;";
+       public string NombreProc;
 
-        public string NombreProc;
+       
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -79,24 +80,8 @@ namespace Conexion_Basededatos
         private void dgvBuscar_SelectionChanged(object sender, EventArgs e)
         {
             try
-            { 
-            if(NombreProc =="buscar_alumno")
-            { 
-            lblcodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
-            txtPrimerNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
-            txtSegundoNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
-            txtPrimerApellido.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[3].Value.ToString();
-            txtSegundoApellido.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[4].Value.ToString();
-            txtEspecialidad.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[5].Value.ToString();
-            dtpFechaNac.Value = DateTime.Parse(dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[6].Value.ToString());
-            }
-            else
             {
-                txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
-                txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
-                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[3].Value.ToString();
-            }
+                this.AbrirEnTexbox(NombreProc);
             }
             catch
             {
@@ -109,22 +94,7 @@ namespace Conexion_Basededatos
             dgvBuscar.DataSource = null;
         }*/
         
-        public void Enable_edit(Boolean enable)
-        {
-           
-            
-                txtPrimerNombre.Enabled = enable;
-                txtSegundoNombre.Enabled = enable;
-                txtPrimerApellido.Enabled = enable;
-                txtSegundoApellido.Enabled = enable;
-                dtpFechaNac.Enabled = enable;
-                cbGrado.Enabled = enable;
-                txtDireccion.Enabled = enable;
-                txtResNombre.Enabled = enable;
-                txtResTelefono.Enabled = enable;
-                txtResOcupacion.Enabled = enable;
-                txtEspecialidad.Enabled = enable;
-            }
+       
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -132,7 +102,7 @@ namespace Conexion_Basededatos
                 this.Enable_edit(true);
             else
                 this.Enable_edit(false);
-            
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -171,8 +141,66 @@ namespace Conexion_Basededatos
                 this.Enable_edit(false);
             }
         }
+        //metodos Enableedit  y AbrirEnTexbox
+        #region
+        /// <summary>
+        /// Abilita los texbox y datetimepickers Para la edicion
+        /// </summary>
+        /// <param name="enable"> Ture para habilitar false para desabilitar</param>
+        public void Enable_edit(Boolean enable)
+        {
+
+
+            txtPrimerNombre.Enabled = enable;
+            txtSegundoNombre.Enabled = enable;
+            txtPrimerApellido.Enabled = enable;
+            txtSegundoApellido.Enabled = enable;
+            dtpFechaNac.Enabled = enable;
+            cbGrado.Enabled = enable;
+            txtDireccion.Enabled = enable;
+            txtResNombre.Enabled = enable;
+            txtResTelefono.Enabled = enable;
+            txtResOcupacion.Enabled = enable;
+            txtEspecialidad.Enabled = enable;
+        }
+
+        /// <summary>
+        /// metodo para rellenar los texbos segun busqueda
+        /// </summary>
+        /// <param name="TipoBusqueda"> si se busca a alumno o a un Responsable</param>
+        public void AbrirEnTexbox (string TipoBusqueda)
+        {
+            if (TipoBusqueda == "buscar_alumno")
+            {
+                #region
+                lblcodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
+                txtPrimerNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                txtSegundoNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                txtPrimerApellido.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[3].Value.ToString();
+                txtSegundoApellido.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[4].Value.ToString();
+                txtEspecialidad.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[5].Value.ToString();
+                dtpFechaNac.Value = DateTime.Parse(dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[6].Value.ToString());
+                txtDireccion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[7].Value.ToString();
+                txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[10].Value.ToString();
+                txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[11].Value.ToString();
+                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();
+                #endregion
+            }
+            else
+            {
+                #region
+                txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
+                txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
+                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[3].Value.ToString();
+                #endregion
+            }
+
+        }
+        #endregion
     }
 
-       
-    }
+
+}
 
