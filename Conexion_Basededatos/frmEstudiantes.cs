@@ -143,6 +143,7 @@ namespace Conexion_Basededatos
         }
         //metodos Enableedit  y AbrirEnTexbox
         #region
+
         /// <summary>
         /// Abilita los texbox y datetimepickers Para la edicion
         /// </summary>
@@ -173,7 +174,7 @@ namespace Conexion_Basededatos
             if (TipoBusqueda == "buscar_alumno")
             {
                 #region
-                lblcodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
+                txtCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 txtPrimerNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 txtSegundoNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
                 txtPrimerApellido.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[3].Value.ToString();
@@ -190,6 +191,11 @@ namespace Conexion_Basededatos
             else
             {
                 #region
+                foreach (Control cont in gbDatosAlumno.Controls)
+                {
+                    if (cont is TextBox )
+                    cont.Text = null;
+                }
                 txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
@@ -199,6 +205,8 @@ namespace Conexion_Basededatos
 
         }
         #endregion
+
+      
     }
 
 

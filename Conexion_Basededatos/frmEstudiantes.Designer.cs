@@ -33,6 +33,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pbEstudiante = new System.Windows.Forms.Button();
             this.pnbuscar = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rdbResponsable = new System.Windows.Forms.RadioButton();
+            this.rdbAlumnos = new System.Windows.Forms.RadioButton();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.dgvBuscar = new System.Windows.Forms.DataGridView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -51,14 +54,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtResNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbDatosAlumno = new System.Windows.Forms.GroupBox();
             this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbGrado = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblcodigo = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,18 +72,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrimerNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rdbAlumnos = new System.Windows.Forms.RadioButton();
-            this.rdbResponsable = new System.Windows.Forms.RadioButton();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnbuscar.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).BeginInit();
             this.pncontainer.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Responsable.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbDatosAlumno.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -140,6 +140,41 @@
             this.pnbuscar.Size = new System.Drawing.Size(346, 566);
             this.pnbuscar.TabIndex = 21;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdbResponsable);
+            this.groupBox3.Controls.Add(this.rdbAlumnos);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(163, 68);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(159, 80);
+            this.groupBox3.TabIndex = 38;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tipo de Busqueda";
+            // 
+            // rdbResponsable
+            // 
+            this.rdbResponsable.AutoSize = true;
+            this.rdbResponsable.Location = new System.Drawing.Point(22, 47);
+            this.rdbResponsable.Name = "rdbResponsable";
+            this.rdbResponsable.Size = new System.Drawing.Size(115, 20);
+            this.rdbResponsable.TabIndex = 1;
+            this.rdbResponsable.Text = "Responsables";
+            this.rdbResponsable.UseVisualStyleBackColor = true;
+            // 
+            // rdbAlumnos
+            // 
+            this.rdbAlumnos.AutoSize = true;
+            this.rdbAlumnos.Checked = true;
+            this.rdbAlumnos.Location = new System.Drawing.Point(22, 21);
+            this.rdbAlumnos.Name = "rdbAlumnos";
+            this.rdbAlumnos.Size = new System.Drawing.Size(78, 20);
+            this.rdbAlumnos.TabIndex = 0;
+            this.rdbAlumnos.TabStop = true;
+            this.rdbAlumnos.Text = "Alumnos";
+            this.rdbAlumnos.UseVisualStyleBackColor = true;
+            // 
             // btnbuscar
             // 
             this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,7 +228,7 @@
             this.pncontainer.BackColor = System.Drawing.Color.White;
             this.pncontainer.Controls.Add(this.groupBox2);
             this.pncontainer.Controls.Add(this.Responsable);
-            this.pncontainer.Controls.Add(this.groupBox1);
+            this.pncontainer.Controls.Add(this.gbDatosAlumno);
             this.pncontainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pncontainer.Location = new System.Drawing.Point(346, 37);
             this.pncontainer.Name = "pncontainer";
@@ -373,33 +408,33 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "Primer Nombre";
             // 
-            // groupBox1
+            // gbDatosAlumno
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox1.Controls.Add(this.txtEspecialidad);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtDireccion);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.cbGrado);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.lblcodigo);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.dtpFechaNac);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtSegundoApellido);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtPrimerApellido);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtSegundoNombre);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtPrimerNombre);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(509, 255);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos alumno";
+            this.gbDatosAlumno.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbDatosAlumno.Controls.Add(this.txtCodigo);
+            this.gbDatosAlumno.Controls.Add(this.txtEspecialidad);
+            this.gbDatosAlumno.Controls.Add(this.label8);
+            this.gbDatosAlumno.Controls.Add(this.txtDireccion);
+            this.gbDatosAlumno.Controls.Add(this.label10);
+            this.gbDatosAlumno.Controls.Add(this.cbGrado);
+            this.gbDatosAlumno.Controls.Add(this.label9);
+            this.gbDatosAlumno.Controls.Add(this.label7);
+            this.gbDatosAlumno.Controls.Add(this.dtpFechaNac);
+            this.gbDatosAlumno.Controls.Add(this.label6);
+            this.gbDatosAlumno.Controls.Add(this.txtSegundoApellido);
+            this.gbDatosAlumno.Controls.Add(this.label4);
+            this.gbDatosAlumno.Controls.Add(this.txtPrimerApellido);
+            this.gbDatosAlumno.Controls.Add(this.label3);
+            this.gbDatosAlumno.Controls.Add(this.txtSegundoNombre);
+            this.gbDatosAlumno.Controls.Add(this.label2);
+            this.gbDatosAlumno.Controls.Add(this.txtPrimerNombre);
+            this.gbDatosAlumno.Controls.Add(this.label1);
+            this.gbDatosAlumno.Location = new System.Drawing.Point(3, 7);
+            this.gbDatosAlumno.Name = "gbDatosAlumno";
+            this.gbDatosAlumno.Size = new System.Drawing.Size(509, 255);
+            this.gbDatosAlumno.TabIndex = 0;
+            this.gbDatosAlumno.TabStop = false;
+            this.gbDatosAlumno.Text = "Datos alumno";
             // 
             // txtEspecialidad
             // 
@@ -460,16 +495,6 @@
             this.label9.Size = new System.Drawing.Size(49, 16);
             this.label9.TabIndex = 26;
             this.label9.Text = "Grado ";
-            // 
-            // lblcodigo
-            // 
-            this.lblcodigo.AutoSize = true;
-            this.lblcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcodigo.Location = new System.Drawing.Point(68, 25);
-            this.lblcodigo.Name = "lblcodigo";
-            this.lblcodigo.Size = new System.Drawing.Size(28, 16);
-            this.lblcodigo.TabIndex = 25;
-            this.lblcodigo.Text = "-----";
             // 
             // label7
             // 
@@ -580,40 +605,14 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Primer Nombre";
             // 
-            // groupBox3
+            // txtCodigo
             // 
-            this.groupBox3.Controls.Add(this.rdbResponsable);
-            this.groupBox3.Controls.Add(this.rdbAlumnos);
-            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(163, 68);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(159, 80);
-            this.groupBox3.TabIndex = 38;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tipo de Busqueda";
-            // 
-            // rdbAlumnos
-            // 
-            this.rdbAlumnos.AutoSize = true;
-            this.rdbAlumnos.Checked = true;
-            this.rdbAlumnos.Location = new System.Drawing.Point(22, 21);
-            this.rdbAlumnos.Name = "rdbAlumnos";
-            this.rdbAlumnos.Size = new System.Drawing.Size(78, 20);
-            this.rdbAlumnos.TabIndex = 0;
-            this.rdbAlumnos.TabStop = true;
-            this.rdbAlumnos.Text = "Alumnos";
-            this.rdbAlumnos.UseVisualStyleBackColor = true;
-            // 
-            // rdbResponsable
-            // 
-            this.rdbResponsable.AutoSize = true;
-            this.rdbResponsable.Location = new System.Drawing.Point(22, 47);
-            this.rdbResponsable.Name = "rdbResponsable";
-            this.rdbResponsable.Size = new System.Drawing.Size(115, 20);
-            this.rdbResponsable.TabIndex = 1;
-            this.rdbResponsable.Text = "Responsables";
-            this.rdbResponsable.UseVisualStyleBackColor = true;
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(68, 22);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
+            this.txtCodigo.Size = new System.Drawing.Size(100, 23);
+            this.txtCodigo.TabIndex = 32;
             // 
             // frmEstudiantes
             // 
@@ -635,15 +634,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnbuscar.ResumeLayout(false);
             this.pnbuscar.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).EndInit();
             this.pncontainer.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.Responsable.ResumeLayout(false);
             this.Responsable.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbDatosAlumno.ResumeLayout(false);
+            this.gbDatosAlumno.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -658,10 +657,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pncontainer;
         private System.Windows.Forms.Button btnbuscar;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbDatosAlumno;
         private System.Windows.Forms.ComboBox cbGrado;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblcodigo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpFechaNac;
         private System.Windows.Forms.Label label6;
@@ -693,5 +691,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton rdbResponsable;
         private System.Windows.Forms.RadioButton rdbAlumnos;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }
