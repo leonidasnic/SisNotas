@@ -173,7 +173,19 @@ namespace Conexion_Basededatos
         {
             if (TipoBusqueda == "buscar_alumno")
             {
+                int i = 0;
                 #region
+                foreach (Control cont in gbDatosAlumno.Controls )
+                {
+                    
+                    
+                    if (cont is TextBox)
+                    {
+                        cont.Text = "hola";
+                        i++;
+                    }
+                }
+                /*
                 txtCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 txtPrimerNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 txtSegundoNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
@@ -185,7 +197,7 @@ namespace Conexion_Basededatos
                 txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[8].Value.ToString();
                 txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[10].Value.ToString();
                 txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[11].Value.ToString();
-                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();
+                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();*/
                 #endregion
             }
             else
