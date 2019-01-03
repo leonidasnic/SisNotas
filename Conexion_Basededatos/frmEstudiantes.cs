@@ -18,7 +18,7 @@ namespace Conexion_Basededatos
         {
             InitializeComponent();
         }
-
+       
        public SqlConnection conexion;
        public DataTable dt;
        public SqlCommand cmd;
@@ -83,9 +83,9 @@ namespace Conexion_Basededatos
             {
                 this.AbrirEnTexbox(NombreProc);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("No existe Crear nuevo", "No registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -143,6 +143,7 @@ namespace Conexion_Basededatos
         }
         //metodos Enableedit  y AbrirEnTexbox
         #region
+            
 
         /// <summary>
         /// Abilita los texbox y datetimepickers Para la edicion
@@ -173,19 +174,8 @@ namespace Conexion_Basededatos
         {
             if (TipoBusqueda == "buscar_alumno")
             {
-                int i = 0;
+            
                 #region
-                foreach (Control cont in gbDatosAlumno.Controls )
-                {
-                    
-                    
-                    if (cont is TextBox)
-                    {
-                        cont.Text = "hola";
-                        i++;
-                    }
-                }
-                /*
                 txtCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 txtPrimerNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 txtSegundoNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
@@ -197,17 +187,15 @@ namespace Conexion_Basededatos
                 txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[8].Value.ToString();
                 txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[10].Value.ToString();
                 txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[11].Value.ToString();
-                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();*/
+                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();
                 #endregion
             }
             else
             {
+
                 #region
-                foreach (Control cont in gbDatosAlumno.Controls)
-                {
-                    if (cont is TextBox )
-                    cont.Text = null;
-                }
+                LimpiarGB(gbDatosAlumno);
+                LimpiarGB(gbResponsable);
                 txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
@@ -217,8 +205,23 @@ namespace Conexion_Basededatos
 
         }
         #endregion
+        public  void LimpiarGB(Control controles)
+        {
+            foreach (Control c in controles.Controls)
+            {
+                if(c is TextBox)
+                {
+                    ((TextBox)c).Clear();
+                }
+                if(c.HasChildren)
+                {
+                    LimpiarGB(c);
+                }
+            }
+            
+        }
 
-      
+     
     }
 
 

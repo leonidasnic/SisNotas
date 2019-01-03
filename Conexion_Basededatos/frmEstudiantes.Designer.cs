@@ -45,7 +45,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.Responsable = new System.Windows.Forms.GroupBox();
+            this.gbResponsable = new System.Windows.Forms.GroupBox();
             this.txtResCodigo = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtResOcupacion = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.txtResNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.gbDatosAlumno = new System.Windows.Forms.GroupBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -72,7 +73,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrimerNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnbuscar.SuspendLayout();
@@ -80,7 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).BeginInit();
             this.pncontainer.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.Responsable.SuspendLayout();
+            this.gbResponsable.SuspendLayout();
             this.gbDatosAlumno.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -227,7 +227,7 @@
             // 
             this.pncontainer.BackColor = System.Drawing.Color.White;
             this.pncontainer.Controls.Add(this.groupBox2);
-            this.pncontainer.Controls.Add(this.Responsable);
+            this.pncontainer.Controls.Add(this.gbResponsable);
             this.pncontainer.Controls.Add(this.gbDatosAlumno);
             this.pncontainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pncontainer.Location = new System.Drawing.Point(346, 37);
@@ -308,24 +308,24 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Responsable
+            // gbResponsable
             // 
-            this.Responsable.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Responsable.Controls.Add(this.txtResCodigo);
-            this.Responsable.Controls.Add(this.label14);
-            this.Responsable.Controls.Add(this.txtResOcupacion);
-            this.Responsable.Controls.Add(this.label13);
-            this.Responsable.Controls.Add(this.txtResTelefono);
-            this.Responsable.Controls.Add(this.label12);
-            this.Responsable.Controls.Add(this.txtResNombre);
-            this.Responsable.Controls.Add(this.label11);
-            this.Responsable.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Responsable.Location = new System.Drawing.Point(2, 278);
-            this.Responsable.Name = "Responsable";
-            this.Responsable.Size = new System.Drawing.Size(507, 131);
-            this.Responsable.TabIndex = 1;
-            this.Responsable.TabStop = false;
-            this.Responsable.Text = "Responsable";
+            this.gbResponsable.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbResponsable.Controls.Add(this.txtResCodigo);
+            this.gbResponsable.Controls.Add(this.label14);
+            this.gbResponsable.Controls.Add(this.txtResOcupacion);
+            this.gbResponsable.Controls.Add(this.label13);
+            this.gbResponsable.Controls.Add(this.txtResTelefono);
+            this.gbResponsable.Controls.Add(this.label12);
+            this.gbResponsable.Controls.Add(this.txtResNombre);
+            this.gbResponsable.Controls.Add(this.label11);
+            this.gbResponsable.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbResponsable.Location = new System.Drawing.Point(2, 278);
+            this.gbResponsable.Name = "gbResponsable";
+            this.gbResponsable.Size = new System.Drawing.Size(507, 131);
+            this.gbResponsable.TabIndex = 1;
+            this.gbResponsable.TabStop = false;
+            this.gbResponsable.Text = "Responsable";
             // 
             // txtResCodigo
             // 
@@ -435,6 +435,15 @@
             this.gbDatosAlumno.TabIndex = 0;
             this.gbDatosAlumno.TabStop = false;
             this.gbDatosAlumno.Text = "Datos alumno";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(68, 22);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.ReadOnly = true;
+            this.txtCodigo.Size = new System.Drawing.Size(100, 23);
+            this.txtCodigo.TabIndex = 32;
             // 
             // txtEspecialidad
             // 
@@ -605,15 +614,6 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Primer Nombre";
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(68, 22);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(100, 23);
-            this.txtCodigo.TabIndex = 32;
-            // 
             // frmEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -639,8 +639,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).EndInit();
             this.pncontainer.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.Responsable.ResumeLayout(false);
-            this.Responsable.PerformLayout();
+            this.gbResponsable.ResumeLayout(false);
+            this.gbResponsable.PerformLayout();
             this.gbDatosAlumno.ResumeLayout(false);
             this.gbDatosAlumno.PerformLayout();
             this.ResumeLayout(false);
@@ -671,7 +671,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPrimerNombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox Responsable;
+        private System.Windows.Forms.GroupBox gbResponsable;
         private System.Windows.Forms.TextBox txtResOcupacion;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtResTelefono;
