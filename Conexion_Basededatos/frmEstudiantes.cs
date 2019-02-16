@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Text; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
@@ -18,14 +18,15 @@ namespace Conexion_Basededatos
         {
             InitializeComponent();
         }
-       
-       public SqlConnection conexion;
-       public DataTable dt;
-       public SqlCommand cmd;
-       public string cadenaconexion = "Data Source=DESKTOP-M3MJNT8;" + "Initial Catalog=Notas_Prueva;" + "Integrated Security=SSPI;";
-       public string NombreProc;
 
-       
+        public SqlConnection conexion;
+        public DataTable dt;
+        public SqlCommand cmd;
+        public string cadenaconexion = "Data Source=DESKTOP-M3MJNT8;" + "Initial Catalog=Notas_Prueva;" + "Integrated Security=SSPI;";
+        public string NombreProc;
+        
+
+
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
