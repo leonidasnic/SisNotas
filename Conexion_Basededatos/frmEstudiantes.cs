@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+
 using System.Linq;
-using System.Text; 
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
@@ -12,21 +13,19 @@ using System.Data.SqlClient;
 
 namespace Conexion_Basededatos
 {
-    public partial class frmEstudiantes : Form
+    public partial class frmEstudiantes : Form 
     {
         public frmEstudiantes()
         {
             InitializeComponent();
         }
 
-        public SqlConnection conexion;
+       
         public DataTable dt;
-        public SqlCommand cmd;
-        public string cadenaconexion = "Data Source=DESKTOP-M3MJNT8;" + "Initial Catalog=Notas_Prueva;" + "Integrated Security=SSPI;";
         public string NombreProc;
+        Alumnos alumnos;
         
-
-
+       
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -36,8 +35,8 @@ namespace Conexion_Basededatos
         {
             //dgvBuscar.DataSource = dt;
             // dgvBuscar.Rows.Clear();
-
-            using (conexion = new SqlConnection(cadenaconexion))
+            #region
+            /*using (DbConection.connection =  new SqlConnection(DbConection.cadenaconexion))
             {
                 if (txtBuscar.Text != string.Empty)
                 {
@@ -55,11 +54,11 @@ namespace Conexion_Basededatos
                             NombreProc = "BuscarResponsable";
                         }
 
-                        conexion.Open();
-                        cmd = new SqlCommand(NombreProc, conexion);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@nombre", txtBuscar.Text);
-                        SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
+                        DbConection.connection.Open();
+                        DbConection.cmd = new SqlCommand(NombreProc, DbConection.connection);
+                        DbConection.cmd.CommandType = CommandType.StoredProcedure;
+                        DbConection.cmd.Parameters.AddWithValue("@nombre", txtBuscar.Text);
+                        SqlDataAdapter adaptador = new SqlDataAdapter(DbConection.cmd);
                         dt = new DataTable();
                         adaptador.Fill(dt);
                         dgvBuscar.DataSource = dt;
@@ -75,7 +74,22 @@ namespace Conexion_Basededatos
                 {
                     MessageBox.Show("INGRESE TEXTO A BUSCAR");
                 }
+            }*/
+            #endregion
+
+            if (txtBuscar.Text != string.Empty)
+            {
+                if (rdbAlumnos.Checked == true)
+                {
+                    NombreProc = "buscar_alumno";
+                }
+                else
+                {
+                    NombreProc = "BuscarResponsable";
+                }
             }
+            alumnos = new Alumnos();
+            dgvBuscar.DataSource= alumnos.get_Alumno(NombreProc, txtBuscar.Text);
         }
 
         private void dgvBuscar_SelectionChanged(object sender, EventArgs e)
@@ -110,12 +124,12 @@ namespace Conexion_Basededatos
         {
 
         }
-
+        #region
         private void button3_Click(object sender, EventArgs e)
-        {
+        {/*
             if(NombreProc=="BuscarResponsable")
             {
-                using (conexion = new SqlConnection(cadenaconexion))
+                using (DbConection.connection= new SqlConnection(DbConection.cadenaconexion))
                 {
                     try
                     { 
@@ -140,11 +154,12 @@ namespace Conexion_Basededatos
                     
                 }
                 this.Enable_edit(false);
-            }
+            }*/
         }
+        #endregion
         //metodos Enableedit  y AbrirEnTexbox
         #region
-            
+
 
         /// <summary>
         /// Abilita los texbox y datetimepickers Para la edicion
@@ -160,6 +175,7 @@ namespace Conexion_Basededatos
             txtSegundoApellido.Enabled = enable;
             dtpFechaNac.Enabled = enable;
             cbGrado.Enabled = enable;
+            dtpFechaEntrada.Enabled = enable;
             txtDireccion.Enabled = enable;
             txtResNombre.Enabled = enable;
             txtResTelefono.Enabled = enable;
@@ -186,9 +202,10 @@ namespace Conexion_Basededatos
                 dtpFechaNac.Value = DateTime.Parse(dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[6].Value.ToString());
                 txtDireccion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[7].Value.ToString();
                 txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[8].Value.ToString();
-                txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[10].Value.ToString();
-                txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[11].Value.ToString();
-                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();
+                dtpFechaEntrada.Value = DateTime.Parse(dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[9].Value.ToString());
+                txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[11].Value.ToString();
+                txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();
+                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[13].Value.ToString();
                 #endregion
             }
             else
@@ -222,7 +239,7 @@ namespace Conexion_Basededatos
             
         }
 
-     
+       
     }
 
 

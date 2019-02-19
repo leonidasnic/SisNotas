@@ -73,6 +73,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrimerNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtpFechaEntrada = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnbuscar.SuspendLayout();
@@ -137,7 +139,7 @@
             this.pnbuscar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnbuscar.Location = new System.Drawing.Point(0, 37);
             this.pnbuscar.Name = "pnbuscar";
-            this.pnbuscar.Size = new System.Drawing.Size(346, 566);
+            this.pnbuscar.Size = new System.Drawing.Size(350, 566);
             this.pnbuscar.TabIndex = 21;
             // 
             // groupBox3
@@ -197,7 +199,7 @@
             this.dgvBuscar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvBuscar.Location = new System.Drawing.Point(0, 164);
             this.dgvBuscar.Name = "dgvBuscar";
-            this.dgvBuscar.Size = new System.Drawing.Size(346, 402);
+            this.dgvBuscar.Size = new System.Drawing.Size(350, 402);
             this.dgvBuscar.TabIndex = 36;
             this.dgvBuscar.SelectionChanged += new System.EventHandler(this.dgvBuscar_SelectionChanged);
             // 
@@ -230,9 +232,9 @@
             this.pncontainer.Controls.Add(this.gbResponsable);
             this.pncontainer.Controls.Add(this.gbDatosAlumno);
             this.pncontainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pncontainer.Location = new System.Drawing.Point(346, 37);
+            this.pncontainer.Location = new System.Drawing.Point(350, 37);
             this.pncontainer.Name = "pncontainer";
-            this.pncontainer.Size = new System.Drawing.Size(512, 566);
+            this.pncontainer.Size = new System.Drawing.Size(508, 566);
             this.pncontainer.TabIndex = 22;
             // 
             // groupBox2
@@ -242,7 +244,7 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(3, 415);
+            this.groupBox2.Location = new System.Drawing.Point(1, 415);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(507, 131);
             this.groupBox2.TabIndex = 30;
@@ -320,7 +322,7 @@
             this.gbResponsable.Controls.Add(this.txtResNombre);
             this.gbResponsable.Controls.Add(this.label11);
             this.gbResponsable.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbResponsable.Location = new System.Drawing.Point(2, 278);
+            this.gbResponsable.Location = new System.Drawing.Point(0, 278);
             this.gbResponsable.Name = "gbResponsable";
             this.gbResponsable.Size = new System.Drawing.Size(507, 131);
             this.gbResponsable.TabIndex = 1;
@@ -411,6 +413,8 @@
             // gbDatosAlumno
             // 
             this.gbDatosAlumno.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gbDatosAlumno.Controls.Add(this.dtpFechaEntrada);
+            this.gbDatosAlumno.Controls.Add(this.label15);
             this.gbDatosAlumno.Controls.Add(this.txtCodigo);
             this.gbDatosAlumno.Controls.Add(this.txtEspecialidad);
             this.gbDatosAlumno.Controls.Add(this.label8);
@@ -429,9 +433,9 @@
             this.gbDatosAlumno.Controls.Add(this.label2);
             this.gbDatosAlumno.Controls.Add(this.txtPrimerNombre);
             this.gbDatosAlumno.Controls.Add(this.label1);
-            this.gbDatosAlumno.Location = new System.Drawing.Point(3, 7);
+            this.gbDatosAlumno.Location = new System.Drawing.Point(1, 7);
             this.gbDatosAlumno.Name = "gbDatosAlumno";
-            this.gbDatosAlumno.Size = new System.Drawing.Size(509, 255);
+            this.gbDatosAlumno.Size = new System.Drawing.Size(509, 265);
             this.gbDatosAlumno.TabIndex = 0;
             this.gbDatosAlumno.TabStop = false;
             this.gbDatosAlumno.Text = "Datos alumno";
@@ -450,7 +454,7 @@
             this.txtEspecialidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtEspecialidad.Enabled = false;
             this.txtEspecialidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEspecialidad.Location = new System.Drawing.Point(124, 175);
+            this.txtEspecialidad.Location = new System.Drawing.Point(124, 189);
             this.txtEspecialidad.Name = "txtEspecialidad";
             this.txtEspecialidad.Size = new System.Drawing.Size(120, 22);
             this.txtEspecialidad.TabIndex = 31;
@@ -459,7 +463,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(9, 181);
+            this.label8.Location = new System.Drawing.Point(9, 195);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 16);
             this.label8.TabIndex = 30;
@@ -470,7 +474,7 @@
             this.txtDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(124, 203);
+            this.txtDireccion.Location = new System.Drawing.Point(124, 217);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(313, 46);
@@ -480,7 +484,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(43, 206);
+            this.label10.Location = new System.Drawing.Point(43, 220);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 16);
             this.label10.TabIndex = 28;
@@ -519,7 +523,7 @@
             // 
             this.dtpFechaNac.Enabled = false;
             this.dtpFechaNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaNac.Location = new System.Drawing.Point(145, 145);
+            this.dtpFechaNac.Location = new System.Drawing.Point(144, 130);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(200, 22);
             this.dtpFechaNac.TabIndex = 23;
@@ -528,7 +532,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 150);
+            this.label6.Location = new System.Drawing.Point(5, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 16);
             this.label6.TabIndex = 22;
@@ -614,6 +618,25 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Primer Nombre";
             // 
+            // dtpFechaEntrada
+            // 
+            this.dtpFechaEntrada.Enabled = false;
+            this.dtpFechaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaEntrada.Location = new System.Drawing.Point(127, 165);
+            this.dtpFechaEntrada.Name = "dtpFechaEntrada";
+            this.dtpFechaEntrada.Size = new System.Drawing.Size(200, 22);
+            this.dtpFechaEntrada.TabIndex = 34;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(5, 170);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 16);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Fecha de entrada";
+            // 
             // frmEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -692,5 +715,7 @@
         private System.Windows.Forms.RadioButton rdbResponsable;
         private System.Windows.Forms.RadioButton rdbAlumnos;
         private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.DateTimePicker dtpFechaEntrada;
+        private System.Windows.Forms.Label label15;
     }
 }
