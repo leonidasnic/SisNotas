@@ -15,7 +15,7 @@ namespace Conexion_Basededatos
     {
         Configuration configuration;
         DataTable dt;
-
+        List<string> grados;
         /// <summary>
         /// 
         /// </summary>
@@ -50,6 +50,24 @@ namespace Conexion_Basededatos
                 
             #endregion
         }
-        public List
+        public List<string> Load_grado()
+        {
+            using (connection = new SqlConnection(conexcionString))
+            {
+                using (cmd = new SqlCommand("LoadGrado", connection))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            grados.Add(reader.ToString());
+                        }
+                    }
+                }
+                
+            }
+            return (grados);
+        }
+        
     }
 }

@@ -239,7 +239,10 @@ namespace Conexion_Basededatos
             
         }
 
-       
+        private void frmEstudiantes_Load(object sender, EventArgs e)
+        {
+            dgvBuscar.DataSource = alumnos.Load_grado();
+        }
     }
 
 

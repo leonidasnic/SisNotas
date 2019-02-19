@@ -55,6 +55,8 @@
             this.txtResNombre = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.gbDatosAlumno = new System.Windows.Forms.GroupBox();
+            this.dtpFechaEntrada = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrimerNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpFechaEntrada = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnbuscar.SuspendLayout();
@@ -440,6 +440,25 @@
             this.gbDatosAlumno.TabStop = false;
             this.gbDatosAlumno.Text = "Datos alumno";
             // 
+            // dtpFechaEntrada
+            // 
+            this.dtpFechaEntrada.Enabled = false;
+            this.dtpFechaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaEntrada.Location = new System.Drawing.Point(127, 165);
+            this.dtpFechaEntrada.Name = "dtpFechaEntrada";
+            this.dtpFechaEntrada.Size = new System.Drawing.Size(200, 22);
+            this.dtpFechaEntrada.TabIndex = 34;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(5, 170);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 16);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Fecha de entrada";
+            // 
             // txtCodigo
             // 
             this.txtCodigo.Enabled = false;
@@ -618,25 +637,6 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Primer Nombre";
             // 
-            // dtpFechaEntrada
-            // 
-            this.dtpFechaEntrada.Enabled = false;
-            this.dtpFechaEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaEntrada.Location = new System.Drawing.Point(127, 165);
-            this.dtpFechaEntrada.Name = "dtpFechaEntrada";
-            this.dtpFechaEntrada.Size = new System.Drawing.Size(200, 22);
-            this.dtpFechaEntrada.TabIndex = 34;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(5, 170);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(114, 16);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Fecha de entrada";
-            // 
             // frmEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -653,6 +653,7 @@
             this.Name = "frmEstudiantes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEstudiantes";
+            this.Load += new System.EventHandler(this.frmEstudiantes_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.pnbuscar.ResumeLayout(false);
