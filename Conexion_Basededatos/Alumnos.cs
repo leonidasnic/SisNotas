@@ -50,23 +50,30 @@ namespace Conexion_Basededatos
                 
             #endregion
         }
-        public List<string> Load_grado()
+        public void Load_grado( ComboBox comboBox)
         {
+           
             using (connection = new SqlConnection(conexcionString))
             {
-                using (cmd = new SqlCommand("LoadGrado", connection))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
+                cmd = new SqlCommand("LoadGrado", connection);
+                connection.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                    DataTable dataTable;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                comboBox.DataSource = dataTable;
+                comboBox.DisplayMember = "Grado";
+                comboBox.ValueMember = "Grado";
+                /*
+                comboBox.DataSource = (BindingSource)dataTable;
                         while (reader.Read())
                         {
-                            grados.Add(reader.ToString());
-                        }
-                    }
-                }
-                
+                            comboBox.Items.Add(reader[0].ToString());
+                        }*/
             }
-            return (grados);
+         
+            
         }
         
     }

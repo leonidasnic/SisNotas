@@ -511,18 +511,17 @@
             // 
             // cbGrado
             // 
-            this.cbGrado.Enabled = false;
             this.cbGrado.FormattingEnabled = true;
-            this.cbGrado.Location = new System.Drawing.Point(406, 145);
+            this.cbGrado.Location = new System.Drawing.Point(388, 165);
             this.cbGrado.Name = "cbGrado";
-            this.cbGrado.Size = new System.Drawing.Size(73, 23);
+            this.cbGrado.Size = new System.Drawing.Size(116, 23);
             this.cbGrado.TabIndex = 27;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(351, 150);
+            this.label9.Location = new System.Drawing.Point(333, 170);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 16);
             this.label9.TabIndex = 26;
