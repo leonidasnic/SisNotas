@@ -13,9 +13,8 @@ namespace Conexion_Basededatos
 {
     class Alumnos : DbConection
     {
-        Configuration configuration;
-        DataTable dt;
-        List<string> grados;
+        int Codresponsable;
+      DataTable dt;
         /// <summary>
         /// 
         /// </summary>
@@ -74,6 +73,34 @@ namespace Conexion_Basededatos
             }
          
             
+        }
+        public DataTable insert_Alumno ( string Primernombre,  string Segundonombre,  string PrimerApellido,
+             string SegundoApellido,  string Especialidad,  string Fecha_nac,  string Direccion,string Fecha_entrada,  string Nombre_R,
+             string Telefono_r,  string Ocupacion)
+        {
+            using (connection = new SqlConnection(conexcionString))
+            {
+                connection.Open();
+                cmd = new SqlCommand("InsertarAlumno", connection);
+                cmd.Parameters.AddWithValue("@PrimerNombre", Primernombre);
+                cmd.Parameters.AddWithValue("@SegundoNombre", Segundonombre);
+                cmd.Parameters.AddWithValue("@PrimerApellido", PrimerApellido);
+                cmd.Parameters.AddWithValue("@SegundoApellido", Segundonombre);
+                cmd.Parameters.AddWithValue("@especialidad", Especialidad);
+                cmd.Parameters.AddWithValue("@FechaNac", Fecha_nac);
+                if(Codresponsable  !=  null)
+                {
+                    cmd.Parameters.AddWithValue("", this.Codresponsable);
+                }
+                cmd.Parameters.AddWithValue("@Direccion", Direccion);
+                cmd.Parameters.AddWithValue("@CodResponsable", Codresponsable);
+                cmd.Parameters.AddWithValue("@Fecha_entrada", Fecha_entrada);
+                cmd.Parameters.AddWithValue("@Nombre_R", Nombre_R);
+                cmd.Parameters.AddWithValue("@Telefono_R", Telefono_r);
+                cmd.Parameters.AddWithValue("@Ocupacion", Ocupacion);
+
+            }
+
         }
         
     }

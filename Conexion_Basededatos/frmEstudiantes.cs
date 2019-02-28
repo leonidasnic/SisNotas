@@ -33,63 +33,8 @@ namespace Conexion_Basededatos
 
         public void btnbuscar_Click(object sender, EventArgs e)
         {
-            //dgvBuscar.DataSource = dt;
-            // dgvBuscar.Rows.Clear();
-            #region
-            /*using (DbConection.connection =  new SqlConnection(DbConection.cadenaconexion))
-            {
-                if (txtBuscar.Text != string.Empty)
-                {
-                   //  rellenar el dgvbuscar
-                    #region
-                    try
-                    {
-                        //codicion para los radiobutons
-                        if (rdbAlumnos.Checked == true)
-                        {
-                            NombreProc = "buscar_alumno";
-                        }
-                        else
-                        { 
-                            NombreProc = "BuscarResponsable";
-                        }
-
-                        DbConection.connection.Open();
-                        DbConection.cmd = new SqlCommand(NombreProc, DbConection.connection);
-                        DbConection.cmd.CommandType = CommandType.StoredProcedure;
-                        DbConection.cmd.Parameters.AddWithValue("@nombre", txtBuscar.Text);
-                        SqlDataAdapter adaptador = new SqlDataAdapter(DbConection.cmd);
-                        dt = new DataTable();
-                        adaptador.Fill(dt);
-                        dgvBuscar.DataSource = dt;
-                        ////// dgvBuscar.Columns[0].Visible = false;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString(), "eror", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    #endregion
-                }
-                else
-                {
-                    MessageBox.Show("INGRESE TEXTO A BUSCAR");
-                }
-            }*/
-            #endregion
-
-            if (txtBuscar.Text != string.Empty)
-            {
-                if (rdbAlumnos.Checked == true)
-                {
-                    NombreProc = "buscar_alumno";
-                }
-                else
-                {
-                    NombreProc = "BuscarResponsable";
-                }
-            }
             alumnos = new Alumnos();
-            dgvBuscar.DataSource= alumnos.get_Alumno(NombreProc, txtBuscar.Text);
+            dgvBuscar.DataSource= alumnos.get_Alumno("buscar_alumno", txtBuscar.Text);
         }
 
         private void dgvBuscar_SelectionChanged(object sender, EventArgs e)
@@ -103,13 +48,14 @@ namespace Conexion_Basededatos
                 MessageBox.Show(ex.ToString());
             }
         }
+        #region
+        /* private void button4_Click(object sender, EventArgs e)
+         {
+             dgvBuscar.DataSource = null;
+         }*/
+        #endregion
 
-       /* private void button4_Click(object sender, EventArgs e)
-        {
-            dgvBuscar.DataSource = null;
-        }*/
-        
-       
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -126,35 +72,15 @@ namespace Conexion_Basededatos
         }
         #region
         private void button3_Click(object sender, EventArgs e)
-        {/*
-            if(NombreProc=="BuscarResponsable")
+        {
+            if(txtPrimerNombre.Enabled == true && txtResNombre.Enabled == true)
+            { 
+
+            }
+            else
             {
-                using (DbConection.connection= new SqlConnection(DbConection.cadenaconexion))
-                {
-                    try
-                    { 
-                    conexion.Open();
-                    cmd = new SqlCommand("InsertarAlumno", conexion);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@PrimerNombre", txtPrimerNombre.Text);
-                    cmd.Parameters.AddWithValue("@SegundoNombre", txtSegundoNombre.Text);
-                    cmd.Parameters.AddWithValue("@PrimerApellido", txtPrimerApellido.Text);
-                    cmd.Parameters.AddWithValue("@SegundoApellido", txtSegundoApellido.Text);
-                    cmd.Parameters.AddWithValue("@especialidad", txtEspecialidad.Text);
-                    cmd.Parameters.AddWithValue("@FechaNac", dtpFechaNac.Value);
-                    cmd.Parameters.AddWithValue("@Direccion", txtDireccion.Text);
-                    cmd.Parameters.AddWithValue("@CodResponsable", txtResCodigo.Text);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Guardado Exitosamente", "Terminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.ToString());
-                    }
-                    
-                }
-                this.Enable_edit(false);
-            }*/
+              
+            }
         }
         #endregion
         //metodos Enableedit  y AbrirEnTexbox
@@ -174,7 +100,6 @@ namespace Conexion_Basededatos
             txtPrimerApellido.Enabled = enable;
             txtSegundoApellido.Enabled = enable;
             dtpFechaNac.Enabled = enable;
-            cbGrado.Enabled = enable;
             dtpFechaEntrada.Enabled = enable;
             txtDireccion.Enabled = enable;
             txtResNombre.Enabled = enable;
@@ -189,10 +114,11 @@ namespace Conexion_Basededatos
         /// <param name="TipoBusqueda"> si se busca a alumno o a un Responsable</param>
         public void AbrirEnTexbox (string TipoBusqueda)
         {
-            if (TipoBusqueda == "buscar_alumno")
-            {
+            #region
             
-                #region
+                LimpiarGB(gbDatosAlumno);
+                LimpiarGB(gbResponsable);
+              
                 txtCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 txtPrimerNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 txtSegundoNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
@@ -206,20 +132,22 @@ namespace Conexion_Basededatos
                 txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[11].Value.ToString();
                 txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[12].Value.ToString();
                 txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[13].Value.ToString();
-                #endregion
-            }
-            else
-            {
+                
 
-                #region
-                LimpiarGB(gbDatosAlumno);
-                LimpiarGB(gbResponsable);
-                txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
-                txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
-                txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[3].Value.ToString();
-                #endregion
-            }
+
+            #endregion
+
+            //else
+            //{
+
+            //    #region
+
+            //    txtResCodigo.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            //    txtResNombre.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            //    txtResTelefono.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[2].Value.ToString();
+            //    txtResOcupacion.Text = dgvBuscar.Rows[dgvBuscar.CurrentCell.RowIndex].Cells[3].Value.ToString();
+            //    #endregion
+            //}
 
         }
         #endregion
@@ -241,8 +169,7 @@ namespace Conexion_Basededatos
 
         private void frmEstudiantes_Load(object sender, EventArgs e)
         {
-            alumnos = new Alumnos();
-            alumnos.Load_grado(cbGrado);
+            
 
         }
     }
