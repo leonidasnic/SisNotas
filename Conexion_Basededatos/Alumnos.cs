@@ -13,8 +13,8 @@ namespace Conexion_Basededatos
 {
     class Alumnos : DbConection
     {
-        int Codresponsable;
       DataTable dt;
+        SqlDataAdapter adaptador;
         /// <summary>
         /// 
         /// </summary>
@@ -32,7 +32,7 @@ namespace Conexion_Basededatos
                         cmd = new SqlCommand(proc, connection);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@nombre", texto);
-                        SqlDataAdapter adaptador = new SqlDataAdapter(cmd);
+                        adaptador = new SqlDataAdapter(cmd);
                         dt = new DataTable();
                         adaptador.Fill(dt);
                         ////// dgvBuscar.Columns[0].Visible = false;
@@ -57,11 +57,10 @@ namespace Conexion_Basededatos
                 cmd = new SqlCommand("LoadGrado", connection);
                 connection.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
-                    DataTable dataTable;
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                comboBox.DataSource = dataTable;
+                adaptador = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                adaptador.Fill(dt);
+                comboBox.DataSource = dt;
                 comboBox.DisplayMember = "Grado";
                 comboBox.ValueMember = "Grado";
                 /*
@@ -74,8 +73,8 @@ namespace Conexion_Basededatos
          
             
         }
-        public DataTable insert_Alumno ( string Primernombre,  string Segundonombre,  string PrimerApellido,
-             string SegundoApellido,  string Especialidad,  string Fecha_nac,  string Direccion,string Fecha_entrada,  string Nombre_R,
+        public DataTable insert_Alumno ( out int CodAlumno,string Primernombre,  string Segundonombre,  string PrimerApellido,
+             string SegundoApellido,  string Especialidad,  string Fecha_nac,  string Direccion, out int CodResponsable, string Fecha_entrada,  string Nombre_R,
              string Telefono_r,  string Ocupacion)
         {
             using (connection = new SqlConnection(conexcionString))
@@ -85,22 +84,26 @@ namespace Conexion_Basededatos
                 cmd.Parameters.AddWithValue("@PrimerNombre", Primernombre);
                 cmd.Parameters.AddWithValue("@SegundoNombre", Segundonombre);
                 cmd.Parameters.AddWithValue("@PrimerApellido", PrimerApellido);
-                cmd.Parameters.AddWithValue("@SegundoApellido", Segundonombre);
+                cmd.Parameters.AddWithValue("@SegundoApellido", SegundoApellido);
                 cmd.Parameters.AddWithValue("@especialidad", Especialidad);
                 cmd.Parameters.AddWithValue("@FechaNac", Fecha_nac);
-                if(Codresponsable  !=  null)
-                {
-                    cmd.Parameters.AddWithValue("", this.Codresponsable);
-                }
                 cmd.Parameters.AddWithValue("@Direccion", Direccion);
-                cmd.Parameters.AddWithValue("@CodResponsable", Codresponsable);
                 cmd.Parameters.AddWithValue("@Fecha_entrada", Fecha_entrada);
                 cmd.Parameters.AddWithValue("@Nombre_R", Nombre_R);
                 cmd.Parameters.AddWithValue("@Telefono_R", Telefono_r);
                 cmd.Parameters.AddWithValue("@Ocupacion", Ocupacion);
-
+                cmd.Parameters.Add("@CodAlumno", SqlDbType.Int);
+                cmd.Parameters["@CodAlumno"].Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@CodResponsable", SqlDbType.Int).Direction = ParameterDirection.Output;
+                adaptador = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                adaptador.Fill(dt);
+                CodAlumno = Convert.ToInt32(cmd.Parameters["@CodAlumno"].Value);
+                CodResponsable = Convert.ToInt32(cmd.Parameters["@CodResponsable"].Value);
+                return (dt);
+                connection.Close();
             }
-
+            
         }
         
     }
